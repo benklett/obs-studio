@@ -16,6 +16,11 @@ brew update
 #Base OBS Deps
 brew install qt5 jack
 
+# Install ccache to speed up the build
+brew install ccache
+export PATH=/usr/local/opt/ccache/libexec:$PATH
+ccache -s || echo "CCache is not available."
+
 # Fetch and untar prebuilt OBS deps that are compatible with older versions of OSX
 curl -L -O https://s3-us-west-2.amazonaws.com/obs-nightly/osx-deps.tar.gz -f --retry 5 -C -
 tar -xf ./osx-deps.tar.gz -C /tmp
